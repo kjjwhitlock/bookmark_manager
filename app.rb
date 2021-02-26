@@ -8,8 +8,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    # Print the ENV variable
-    p ENV
     @list = Bookmark.all
     erb :index
   end
@@ -19,7 +17,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    Bookmark.create(url: params[:url])
+    Bookmark.create(params[:url], params[:title])
     redirect '/bookmarks'
   end
 

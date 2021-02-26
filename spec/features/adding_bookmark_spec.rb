@@ -1,9 +1,9 @@
-feature 'Adding a bookmark' do
-  scenario 'user adds a bookmark URL' do
+feature 'adding a bookmark' do
+  scenario 'A user can add a bookmark to the list' do
     visit('/bookmarks/new')
-    fill_in('url', with: 'http://www.testsite.com')
-    click_button('Submit')
-
-    expect(page).to have_content('http://www.testsite.com')
+    fill_in('url', with: 'http://testbookmark.com')
+    fill_in('title', with: 'Test Bookmark')
+    click_button ('Submit')
+    expect(page).to have_link('Test Bookmark', href:'http://testbookmark.com')
   end
 end

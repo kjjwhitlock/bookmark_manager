@@ -1,7 +1,7 @@
+require_relative './setup_test_database'
+
 ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
-
-require_relative './setup_test_database'
 
 RSpec.configure do |config|
   config.before(:each) do
